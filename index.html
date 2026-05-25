@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FondoBlanco AI - Quitar Fondo a Varias Fotos en Lote</title>
+  <meta name="description" content="Elimina el fondo de múltiples imágenes simultáneamente y ponlas con fondo blanco o de cualquier color. Procesamiento 100% local, privado y gratuito.">
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" />
+            <path d="M21 15l-5-5L5 21" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>FondoBlanco <span class="badge">AI</span></h1>
+          <p>Procesamiento de imágenes por lotes 100% local</p>
+        </div>
+      </div>
+      
+      <div class="header-security">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+          <path d="M7 11V7a5 5 0 0110 0v4" />
+        </svg>
+        <span>Seguridad Local: Tus fotos no se suben a ningún servidor</span>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="workspace">
+      <!-- Control Panel (Global Settings) -->
+      <section class="control-panel card">
+        <div class="panel-section">
+          <h2>1. Color de Fondo</h2>
+          <p class="section-desc">Selecciona el fondo para aplicar a todo el lote:</p>
+          <div class="color-options" id="color-options-container">
+            <!-- Transparent option -->
+            <label class="color-option-label" title="Transparente">
+              <input type="radio" name="bg-color" value="transparent">
+              <span class="color-preview transparent-checker"></span>
+              <span class="color-name">Transparente</span>
+            </label>
+            <!-- White option (default) -->
+            <label class="color-option-label" title="Blanco">
+              <input type="radio" name="bg-color" value="#ffffff" checked>
+              <span class="color-preview color-white"></span>
+              <span class="color-name">Blanco</span>
+            </label>
+            <!-- Black option -->
+            <label class="color-option-label" title="Negro">
+              <input type="radio" name="bg-color" value="#000000">
+              <span class="color-preview color-black"></span>
+              <span class="color-name">Negro</span>
+            </label>
+            <!-- Light Gray option -->
+            <label class="color-option-label" title="Gris Claro">
+              <input type="radio" name="bg-color" value="#f1f5f9">
+              <span class="color-preview color-gray"></span>
+              <span class="color-name">Gris</span>
+            </label>
+            <!-- Custom color picker -->
+            <label class="color-option-label custom-picker-label" title="Personalizado">
+              <input type="radio" name="bg-color" id="radio-custom-color" value="#ff0000">
+              <span class="color-preview color-custom" id="custom-color-preview">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+              </span>
+              <span class="color-name">Elegir...</span>
+              <input type="color" id="custom-color-input" value="#6366f1" class="color-picker-input">
+            </label>
+          </div>
+        </div>
+
+        <div class="panel-divider"></div>
+
+        <div class="panel-section actions-section">
+          <h2>2. Acciones del Lote</h2>
+          <div class="batch-stats" id="batch-stats">
+            <span class="stat-item">Total: <strong id="stat-total">0</strong></span>
+            <span class="stat-item">Procesadas: <strong id="stat-processed">0</strong></span>
+            <span class="stat-item">Restantes: <strong id="stat-remaining">0</strong></span>
+          </div>
+          <div class="action-buttons">
+            <button id="btn-download-zip" class="btn btn-primary" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+              </svg>
+              Descargar Todo (.ZIP)
+            </button>
+            <button id="btn-clear-all" class="btn btn-secondary" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+              Limpiar Lote
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Upload Zone / Drop Area -->
+      <section class="upload-container">
+        <div class="drop-zone" id="drop-zone">
+          <input type="file" id="file-input" multiple accept="image/png, image/jpeg, image/jpg, image/webp" class="file-input">
+          <div class="drop-zone-content">
+            <div class="upload-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 16V8m0 0l-4 4m4-4l4 4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 002-2v-4M17 6.25a3.5 3.5 0 10-6.9 0 4.5 4.5 0 00-7.1 5A2 2 0 003 13h18a2 2 0 000-4h-.25" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Sube tus imágenes en lote</h3>
+            <p>Arrastra y suelta tus archivos aquí, o <span class="browse-link">selecciónalos desde tu equipo</span></p>
+            <span class="file-info-limit">Soporta PNG, JPG, JPEG, WEBP. Procesamiento local ilimitado.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sample Images section (Quick testing) -->
+      <section class="samples-container" id="samples-section">
+        <p>¿No tienes fotos a la mano? Prueba con estas de ejemplo:</p>
+        <div class="samples-grid">
+          <button class="sample-btn" data-sample="shoe">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=120&q=80" alt="Zapato deportivo">
+            <span>Calzado</span>
+          </button>
+          <button class="sample-btn" data-sample="plant">
+            <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=120&q=80" alt="Maceta con planta">
+            <span>Producto</span>
+          </button>
+          <button class="sample-btn" data-sample="coffee">
+            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=120&q=80" alt="Taza de café">
+            <span>Taza</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Batch Queue / Preview Grid -->
+      <section class="batch-results-container" id="results-section" style="display: none;">
+        <div class="section-title-bar">
+          <h2>Fotos del Lote</h2>
+          <div class="queue-status-bar" id="queue-status-bar">
+            <span class="pulse-indicator"></span>
+            <span id="queue-status-text">Inicializando modelo de IA...</span>
+          </div>
+        </div>
+        
+        <div class="results-grid" id="results-grid">
+          <!-- Dynamically filled with image cards -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer-bar">
+      <p>&copy; 2026 FondoBlanco AI • Construido con WebAssembly y ONNX</p>
+    </footer>
+  </div>
+
+  <!-- Global Modal for Details/Comparison Preview -->
+  <div class="modal" id="preview-modal">
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="modal-body">
+        <div class="comparison-slider-container" id="comparison-slider-container">
+          <div class="slider-image-under" id="slider-img-original"></div>
+          <div class="slider-image-over" id="slider-img-processed"></div>
+          <div class="slider-handle" id="slider-handle">
+            <div class="handle-button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M8 7l-5 5 5 5M16 7l5 5-5 5" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <span class="modal-file-name" id="modal-file-name">imagen.jpg</span>
+        <button id="modal-btn-download" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          Descargar esta foto
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
