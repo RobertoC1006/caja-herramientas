@@ -23,13 +23,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnPrivacy && privacyModal) {
       btnPrivacy.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log('Opening Privacy Modal');
+        console.log('Opening Privacy Modal...');
         privacyModal.classList.add('active');
+        console.log('Privacy Modal classList after open:', privacyModal.classList.toString());
+        console.log('Privacy Modal computed display style:', window.getComputedStyle(privacyModal).display);
       });
 
       const closePrivacyModal = () => {
-        console.log('Closing Privacy Modal');
+        console.log('Closing Privacy Modal...');
         privacyModal.classList.remove('active');
+        console.log('Privacy Modal classList after close:', privacyModal.classList.toString());
+        console.log('Privacy Modal computed display style:', window.getComputedStyle(privacyModal).display);
       };
 
       [btnPrivacyClose, privacyOverlay, btnPrivacyAccept].forEach(btn => {
