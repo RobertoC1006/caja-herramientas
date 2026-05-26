@@ -778,3 +778,109 @@
   width: 16px;
   height: 16px;
 }
+
+/* Privacy Policy Modal override */
+.privacy-modal-content {
+  max-width: 650px !important;
+  background: rgba(17, 24, 39, 0.96) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.privacy-modal-body {
+  padding: 3rem 2rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-height: 70vh;
+}
+
+.privacy-modal-body h2 {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.privacy-scroll-area {
+  overflow-y: auto;
+  padding-right: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Custom Scrollbar for privacy scroll area */
+.privacy-scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.privacy-scroll-area::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 9px;
+}
+
+.privacy-scroll-area::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9px;
+}
+
+.privacy-scroll-area::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+.privacy-section h3 {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  border-left: 3px solid var(--color-primary);
+  padding-left: 0.5rem;
+  text-align: left;
+}
+
+.privacy-section h4 {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  text-align: left;
+}
+
+.privacy-section p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+.privacy-section ul {
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.privacy-section li {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.privacy-section a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.privacy-section a:hover {
+  color: var(--color-primary-hover);
+}

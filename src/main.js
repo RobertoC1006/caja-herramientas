@@ -28,6 +28,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Privacy Policy Modal Events
+  const btnPrivacy = document.getElementById('btn-privacy-policy');
+  const privacyModal = document.getElementById('privacy-policy-modal');
+  const btnPrivacyClose = document.getElementById('privacy-modal-close-btn');
+  const privacyOverlay = document.getElementById('privacy-modal-overlay');
+  const btnPrivacyAccept = document.getElementById('btn-privacy-accept');
+
+  if (btnPrivacy && privacyModal) {
+    btnPrivacy.addEventListener('click', () => {
+      privacyModal.classList.add('active');
+    });
+
+    const closePrivacyModal = () => {
+      privacyModal.classList.remove('active');
+    };
+
+    [btnPrivacyClose, privacyOverlay, btnPrivacyAccept].forEach(btn => {
+      if (btn) btn.addEventListener('click', closePrivacyModal);
+    });
+  }
+
   function closeMobileSidebar() {
     if (appSidebar && sidebarOverlay) {
       appSidebar.classList.remove('open');

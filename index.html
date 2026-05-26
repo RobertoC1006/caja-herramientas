@@ -40,6 +40,9 @@
       <!-- Footer -->
       <footer class="app-footer-bar">
         <p>&copy; 2026 CajaHerramientas • Procesamiento local por lotes • Construido con WebAssembly y ONNX</p>
+        <div class="footer-links" style="margin-top: 0.5rem; display: flex; justify-content: center; gap: 1rem;">
+          <a id="btn-privacy-policy" class="footer-link" style="color: var(--text-muted); font-size: 0.75rem; text-decoration: underline; cursor: pointer; transition: color var(--transition-fast);">Política de Privacidad y Condiciones</a>
+        </div>
       </footer>
     </main>
   </div>
@@ -48,6 +51,8 @@
   <load src="src/components/preview-modal.html" />
   <!-- Inject Download Timer Modal component -->
   <load src="src/components/download-modal.html" />
+  <!-- Inject Privacy Policy Modal component -->
+  <load src="src/components/privacy-modal.html" />
 
   <!-- Scripts -->
   <script type="module" src="/src/main.js"></script>
