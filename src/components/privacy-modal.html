@@ -1,8 +1,8 @@
 <!-- Modal de Política de Privacidad y Términos de Servicio -->
 <div class="modal" id="privacy-policy-modal">
-  <div class="modal-overlay" id="privacy-modal-overlay"></div>
+  <div class="modal-overlay" id="privacy-modal-overlay" onclick="document.getElementById('privacy-policy-modal').classList.remove('active');"></div>
   <div class="modal-content privacy-modal-content">
-    <button class="modal-close" id="privacy-modal-close-btn" aria-label="Cerrar modal">
+    <button class="modal-close" id="privacy-modal-close-btn" aria-label="Cerrar modal" onclick="document.getElementById('privacy-policy-modal').classList.remove('active');">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M18 6L6 18M6 6l12 12" />
       </svg>
@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button id="btn-privacy-accept" class="btn btn-primary" style="margin-left: auto;">Entendido</button>
+      <button id="btn-privacy-accept" class="btn btn-primary" style="margin-left: auto;" onclick="document.getElementById('privacy-policy-modal').classList.remove('active');">Entendido</button>
     </div>
   </div>
 </div>
