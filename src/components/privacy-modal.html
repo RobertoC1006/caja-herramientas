@@ -1,17 +1,17 @@
 <!-- Modal de Política de Privacidad y Términos de Servicio -->
-<div class="modal" id="privacy-policy-modal">
-  <div class="modal-overlay" id="privacy-modal-overlay" onclick="document.getElementById('privacy-policy-modal').classList.remove('active');"></div>
-  <div class="modal-content privacy-modal-content">
-    <button class="modal-close" id="privacy-modal-close-btn" aria-label="Cerrar modal" onclick="document.getElementById('privacy-policy-modal').classList.remove('active');">
+<div class="modal" id="legal-modal">
+  <div class="modal-overlay" id="legal-overlay"></div>
+  <div class="modal-content legal-modal-content">
+    <button class="modal-close" id="legal-close-btn" aria-label="Cerrar modal">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M18 6L6 18M6 6l12 12" />
       </svg>
     </button>
-    <div class="privacy-modal-body">
+    <div class="legal-modal-body">
       <h2>Políticas y Condiciones de Uso</h2>
       
-      <div class="privacy-scroll-area">
-        <section class="privacy-section">
+      <div class="legal-scroll-area">
+        <section class="legal-section">
           <h3>1. Política de Privacidad</h3>
           <p>En <strong>CajaHerramientas AI</strong>, valoramos y respetamos al máximo la privacidad de nuestros usuarios. A continuación, detallamos cómo gestionamos los datos:</p>
           
@@ -26,7 +26,7 @@
           </ul>
         </section>
 
-        <section class="privacy-section">
+        <section class="legal-section">
           <h3>2. Términos de Servicio</h3>
           <p>Al acceder y utilizar el sitio web de CajaHerramientas AI, aceptas de manera incondicional las siguientes condiciones de uso:</p>
           
@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button id="btn-privacy-accept" class="btn btn-primary" style="margin-left: auto;" onclick="document.getElementById('privacy-policy-modal').classList.remove('active');">Entendido</button>
+      <button id="btn-legal-accept" class="btn btn-primary" style="margin-left: auto;">Entendido</button>
     </div>
   </div>
 </div>

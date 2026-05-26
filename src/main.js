@@ -4,48 +4,34 @@ import { refreshAds } from './core/ads.js';
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOMContentLoaded: Initializing CajaHerramientas AI components...');
 
-  // 1. Privacy Policy Modal Events (Priority initialization)
+  // 1. Legal Policy Modal Events (Priority initialization)
   try {
-    const btnPrivacy = document.getElementById('btn-privacy-policy');
-    const privacyModal = document.getElementById('privacy-policy-modal');
-    const btnPrivacyClose = document.getElementById('privacy-modal-close-btn');
-    const privacyOverlay = document.getElementById('privacy-modal-overlay');
-    const btnPrivacyAccept = document.getElementById('btn-privacy-accept');
+    const btnLegal = document.getElementById('btn-legal-trigger');
+    const legalModal = document.getElementById('legal-modal');
+    const btnLegalClose = document.getElementById('legal-close-btn');
+    const legalOverlay = document.getElementById('legal-overlay');
+    const btnLegalAccept = document.getElementById('btn-legal-accept');
 
-    console.log('Privacy Modal elements status:', {
-      btnPrivacy: !!btnPrivacy,
-      privacyModal: !!privacyModal,
-      btnPrivacyClose: !!btnPrivacyClose,
-      privacyOverlay: !!privacyOverlay,
-      btnPrivacyAccept: !!btnPrivacyAccept
-    });
-
-    if (btnPrivacy && privacyModal) {
-      btnPrivacy.addEventListener('click', (e) => {
+    if (btnLegal && legalModal) {
+      btnLegal.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log('Opening Privacy Modal...');
-        privacyModal.classList.add('active');
-        console.log('Privacy Modal classList after open:', privacyModal.classList.toString());
-        console.log('Privacy Modal computed display style:', window.getComputedStyle(privacyModal).display);
+        legalModal.classList.add('active');
       });
 
-      const closePrivacyModal = () => {
-        console.log('Closing Privacy Modal...');
-        privacyModal.classList.remove('active');
-        console.log('Privacy Modal classList after close:', privacyModal.classList.toString());
-        console.log('Privacy Modal computed display style:', window.getComputedStyle(privacyModal).display);
+      const closeLegalModal = () => {
+        legalModal.classList.remove('active');
       };
 
-      [btnPrivacyClose, privacyOverlay, btnPrivacyAccept].forEach(btn => {
+      [btnLegalClose, legalOverlay, btnLegalAccept].forEach(btn => {
         if (btn) {
-          btn.addEventListener('click', closePrivacyModal);
+          btn.addEventListener('click', closeLegalModal);
         }
       });
     } else {
-      console.warn('Privacy modal elements not found in the DOM.');
+      console.warn('Legal modal elements not found in the DOM.');
     }
   } catch (err) {
-    console.error('Error initializing Privacy Modal:', err);
+    console.error('Error initializing Legal Modal:', err);
   }
 
   // 2. Mobile Menu Toggling

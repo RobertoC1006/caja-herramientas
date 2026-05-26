@@ -779,8 +779,8 @@
   height: 16px;
 }
 
-/* Privacy Policy Modal override */
-.privacy-modal-content {
+/* Legal Policy Modal override */
+.legal-modal-content {
   max-width: 650px !important;
   background: rgba(17, 24, 39, 0.96) !important;
   backdrop-filter: blur(24px) !important;
@@ -788,7 +788,7 @@
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-.privacy-modal-body {
+.legal-modal-body {
   padding: 3rem 2rem 1.5rem 2rem;
   display: flex;
   flex-direction: column;
@@ -796,7 +796,7 @@
   max-height: 70vh;
 }
 
-.privacy-modal-body h2 {
+.legal-modal-body h2 {
   font-family: var(--font-title);
   font-size: 1.6rem;
   font-weight: 800;
@@ -805,7 +805,7 @@
   letter-spacing: -0.5px;
 }
 
-.privacy-scroll-area {
+.legal-scroll-area {
   overflow-y: auto;
   padding-right: 0.75rem;
   display: flex;
@@ -813,26 +813,26 @@
   gap: 2rem;
 }
 
-/* Custom Scrollbar for privacy scroll area */
-.privacy-scroll-area::-webkit-scrollbar {
+/* Custom Scrollbar for legal scroll area */
+.legal-scroll-area::-webkit-scrollbar {
   width: 6px;
 }
 
-.privacy-scroll-area::-webkit-scrollbar-track {
+.legal-scroll-area::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.02);
   border-radius: 9px;
 }
 
-.privacy-scroll-area::-webkit-scrollbar-thumb {
+.legal-scroll-area::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 9px;
 }
 
-.privacy-scroll-area::-webkit-scrollbar-thumb:hover {
+.legal-scroll-area::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary);
 }
 
-.privacy-section h3 {
+.legal-section h3 {
   font-family: var(--font-title);
   font-size: 1.15rem;
   font-weight: 700;
@@ -843,7 +843,7 @@
   text-align: left;
 }
 
-.privacy-section h4 {
+.legal-section h4 {
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 600;
@@ -853,7 +853,7 @@
   text-align: left;
 }
 
-.privacy-section p {
+.legal-section p {
   font-size: 0.85rem;
   color: var(--text-secondary);
   line-height: 1.6;
@@ -861,7 +861,7 @@
   text-align: left;
 }
 
-.privacy-section ul {
+.legal-section ul {
   padding-left: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -870,17 +870,17 @@
   text-align: left;
 }
 
-.privacy-section li {
+.legal-section li {
   font-size: 0.85rem;
   color: var(--text-secondary);
   line-height: 1.5;
 }
 
-.privacy-section a {
+.legal-section a {
   color: var(--color-primary);
   text-decoration: underline;
 }
 
-.privacy-section a:hover {
+.legal-section a:hover {
   color: var(--color-primary-hover);
 }
