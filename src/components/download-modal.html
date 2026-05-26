@@ -1,0 +1,25 @@
+<!-- Modal de Cuenta Regresiva para la Descarga -->
+<div class="modal" id="download-timer-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-content download-modal-content">
+    <div class="download-modal-body">
+      <h3>Preparando tu descarga...</h3>
+      <p>Espera un momento mientras empaquetamos tus archivos.</p>
+      
+      <!-- Progress timer visual ring -->
+      <div class="timer-ring-container">
+        <svg class="timer-ring" width="120" height="120">
+          <circle class="timer-ring-bg" cx="60" cy="60" r="52" stroke-width="8" fill="transparent"/>
+          <circle class="timer-ring-progress" cx="60" cy="60" r="52" stroke-width="8" fill="transparent"/>
+        </svg>
+        <div class="timer-countdown" id="download-countdown-number">5</div>
+      </div>
+
+      <!-- High value ad container inside download modal -->
+      <div id="ad-download-timer-container" class="ad-box-modal-timer" style="min-height: 250px; width: 100%; max-width: 300px; background: rgba(255,255,255,0.01); display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: var(--radius-md); border: 1px dashed var(--border-color); font-size: 0.75rem; color: var(--text-muted); padding: 1rem; text-align: center; gap: 0.5rem; margin-top: 1.5rem;">
+        <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Publicidad</span>
+        <span style="font-size: 0.8rem; color: var(--text-secondary);">Anuncio Patrocinado</span>
+      </div>
+    </div>
+  </div>
+</div>

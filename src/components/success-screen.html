@@ -1,0 +1,53 @@
+<!-- Vista de Descarga Exitosa (Hidden by default) -->
+<section id="tool-success-screen" class="tool-page success-page-view" style="display: none;">
+  <div class="success-card card">
+    <div class="success-icon-wrapper">
+      <svg class="success-checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+        <circle class="success-checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+        <path class="success-checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+      </svg>
+    </div>
+    
+    <h2>¡Descarga Completada!</h2>
+    <p>Tus imágenes procesadas localmente se han descargado con éxito.</p>
+    
+    <button id="btn-success-restart" class="btn btn-primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M23 4v6h-6M1 20v-6h6" />
+        <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Volver a procesar más imágenes
+    </button>
+
+    <!-- Cooldown Timer UI (hidden by default) -->
+    <div id="cooldown-timer-container" class="cooldown-timer-container" style="display: none; flex-direction: column; align-items: center; gap: 1rem; width: 100%;">
+      <p class="cooldown-message" style="font-size: 0.9rem; color: var(--text-secondary);">Preparando la mesa de trabajo para tu próximo lote...</p>
+      <div class="cooldown-timer-circle" style="position: relative; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+        <svg class="cooldown-ring" width="80" height="80" style="transform: rotate(-90deg);">
+          <circle class="cooldown-ring-bg" cx="40" cy="40" r="34" stroke-width="5" stroke="rgba(255,255,255,0.05)" fill="transparent"/>
+          <circle class="cooldown-ring-progress" cx="40" cy="40" r="34" stroke-width="5" stroke="var(--color-primary)" stroke-linecap="round" fill="transparent" style="transition: stroke-dashoffset 0.03s linear; filter: drop-shadow(0 0 4px rgba(99, 102, 241, 0.4));"/>
+        </svg>
+        <div class="cooldown-countdown" id="cooldown-countdown-number" style="position: absolute; font-family: var(--font-title); font-size: 1.5rem; font-weight: 700; color: var(--text-primary);">10</div>
+      </div>
+      
+      <!-- Middle ad in success screen shown only during cooldown -->
+      <div id="ad-success-cooldown" class="ad-box-cooldown-timer" style="min-height: 90px; width: 100%; max-width: 320px; background: rgba(255,255,255,0.01); display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: var(--radius-md); border: 1px dashed var(--border-color); font-size: 0.7rem; color: var(--text-muted); padding: 0.5rem; text-align: center; gap: 0.25rem; margin-top: 1rem;">
+        <span style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Publicidad</span>
+        <span style="font-size: 0.75rem; color: var(--text-secondary);">Anuncio Patrocinado</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ads section in Success Screen -->
+  <div class="success-ads-grid">
+    <div id="ad-success-left" class="ad-box-success" style="min-height: 250px; background: rgba(255,255,255,0.01); display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: var(--radius-md); border: 1px dashed var(--border-color); font-size: 0.75rem; color: var(--text-muted); padding: 1rem; text-align: center; gap: 0.5rem;">
+      <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Publicidad</span>
+      <span style="font-size: 0.8rem; color: var(--text-secondary);">Anuncio Relacionado (Lado Izquierdo)</span>
+    </div>
+    
+    <div id="ad-success-right" class="ad-box-success" style="min-height: 250px; background: rgba(255,255,255,0.01); display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: var(--radius-md); border: 1px dashed var(--border-color); font-size: 0.75rem; color: var(--text-muted); padding: 1rem; text-align: center; gap: 0.5rem;">
+      <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Publicidad</span>
+      <span style="font-size: 0.8rem; color: var(--text-secondary);">Anuncio Relacionado (Lado Derecho)</span>
+    </div>
+  </div>
+</section>

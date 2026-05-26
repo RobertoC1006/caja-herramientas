@@ -1,0 +1,147 @@
+<!-- Section: Bg Remover (Active) -->
+<section id="tool-bg-remover" class="tool-page active">
+  <!-- Alert Banner for Batch Limit Exceeded -->
+  <div id="batch-limit-alert" class="alert-banner warning" style="display: none;">
+    <div class="alert-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="alert-content">
+      <span class="alert-title">Límite de Lote Alcanzado</span>
+      <span class="alert-desc">Solo se permiten hasta 5 imágenes en el lote. Las fotos sobrantes fueron ignoradas.</span>
+    </div>
+    <button class="btn-alert-close" id="btn-alert-close" aria-label="Cerrar aviso">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="control-panel card">
+    <div class="panel-section">
+      <h2>1. Color de Fondo</h2>
+      <p class="section-desc">Selecciona el fondo para aplicar a todo el lote:</p>
+      <div class="color-options" id="color-options-container">
+        <!-- Transparent option -->
+        <label class="color-option-label" title="Transparente">
+          <input type="radio" name="bg-color" value="transparent">
+          <span class="color-preview transparent-checker"></span>
+          <span class="color-name">Transparente</span>
+        </label>
+        <!-- White option (default) -->
+        <label class="color-option-label" title="Blanco">
+          <input type="radio" name="bg-color" value="#ffffff" checked>
+          <span class="color-preview color-white"></span>
+          <span class="color-name">Blanco</span>
+        </label>
+        <!-- Black option -->
+        <label class="color-option-label" title="Negro">
+          <input type="radio" name="bg-color" value="#000000">
+          <span class="color-preview color-black"></span>
+          <span class="color-name">Negro</span>
+        </label>
+        <!-- Light Gray option -->
+        <label class="color-option-label" title="Gris Claro">
+          <input type="radio" name="bg-color" value="#f1f5f9">
+          <span class="color-preview color-gray"></span>
+          <span class="color-name">Gris</span>
+        </label>
+        <!-- Custom color picker -->
+        <label class="color-option-label custom-picker-label" title="Personalizado">
+          <input type="radio" name="bg-color" id="radio-custom-color" value="#ff0000">
+          <span class="color-preview color-custom" id="custom-color-preview">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+          </span>
+          <span class="color-name">Elegir...</span>
+          <input type="color" id="custom-color-input" value="#6366f1" class="color-picker-input">
+        </label>
+      </div>
+    </div>
+
+    <div class="panel-divider"></div>
+
+    <div class="panel-section actions-section">
+      <h2>2. Acciones del Lote</h2>
+      <div class="batch-stats" id="batch-stats">
+        <span class="stat-item">Total: <strong id="stat-total">0</strong></span>
+        <span class="stat-item">Procesadas: <strong id="stat-processed">0</strong></span>
+        <span class="stat-item">Restantes: <strong id="stat-remaining">0</strong></span>
+      </div>
+      <div class="action-buttons">
+        <button id="btn-download-zip" class="btn btn-primary" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          Descargar Todo (.ZIP)
+        </button>
+        <button id="btn-clear-all" class="btn btn-secondary" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+          </svg>
+          Limpiar Lote
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upload Zone / Drop Area -->
+  <div class="upload-container">
+    <div class="drop-zone" id="drop-zone">
+      <input type="file" id="file-input" multiple accept="image/png, image/jpeg, image/jpg, image/webp" class="file-input">
+      <div class="drop-zone-content">
+        <div class="upload-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 16V8m0 0l-4 4m4-4l4 4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 002-2v-4M17 6.25a3.5 3.5 0 10-6.9 0 4.5 4.5 0 00-7.1 5A2 2 0 003 13h18a2 2 0 000-4h-.25" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Sube tus imágenes en lote</h3>
+        <p>Arrastra y suelta tus archivos aquí, o <span class="browse-link">selecciónalos desde tu equipo</span></p>
+        <span class="file-info-limit">Soporta PNG, JPG, JPEG, WEBP. Procesamiento local ilimitado.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sample Images -->
+  <div class="samples-container" id="samples-section">
+    <p>¿No tienes fotos a la mano? Prueba con estas de ejemplo:</p>
+    <div class="samples-grid">
+      <button class="sample-btn" data-sample="shoe">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=120&q=80" alt="Zapato deportivo">
+        <span>Calzado</span>
+      </button>
+      <button class="sample-btn" data-sample="plant">
+        <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=120&q=80" alt="Maceta con planta">
+        <span>Producto</span>
+      </button>
+      <button class="sample-btn" data-sample="coffee">
+        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=120&q=80" alt="Taza de café">
+        <span>Taza</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Batch Queue / Preview Grid -->
+  <div class="batch-results-container" id="results-section" style="display: none;">
+    <div class="section-title-bar">
+      <h2>Fotos del Lote</h2>
+      <div class="queue-status-bar" id="queue-status-bar">
+        <span class="pulse-indicator"></span>
+        <span id="queue-status-text">Inicializando modelo de IA...</span>
+      </div>
+    </div>
+    
+    <!-- Processing state ad slot (shown while loading model or processing batch) -->
+    <div id="ad-processing-container" class="ad-box-processing" style="display: none; min-height: 90px; background: rgba(255,255,255,0.01); border-radius: var(--radius-md); border: 1px dashed var(--border-color); font-size: 0.75rem; color: var(--text-muted); padding: 1rem; text-align: center; justify-content: center; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+      <span style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Publicidad</span>
+      <span style="font-size: 0.8rem; color: var(--text-secondary);">Anuncio Activo durante el Procesamiento</span>
+    </div>
+    
+    <div class="results-grid" id="results-grid">
+      <!-- Dynamically filled with image cards -->
+    </div>
+  </div>
+</section>

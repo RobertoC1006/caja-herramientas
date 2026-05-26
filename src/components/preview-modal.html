@@ -1,0 +1,41 @@
+<!-- Global Modal for Details/Comparison Preview -->
+<div class="modal" id="preview-modal">
+  <div class="modal-overlay" id="modal-overlay"></div>
+  <div class="modal-content">
+    <button class="modal-close" id="modal-close-btn" aria-label="Cerrar modal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12" />
+      </svg>
+    </button>
+    <div class="modal-body">
+      <div class="comparison-slider-container" id="comparison-slider-container">
+        <div class="slider-image-under" id="slider-img-original"></div>
+        <div class="slider-image-over" id="slider-img-processed"></div>
+        <div class="slider-handle" id="slider-handle">
+          <div class="handle-button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M8 7l-5 5 5 5M16 7l5 5-5 5" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer" style="flex-wrap: wrap; gap: 1.5rem;">
+      <div class="modal-footer-left" style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <span class="modal-file-name" id="modal-file-name">imagen.jpg</span>
+        <button id="modal-btn-download" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+          </svg>
+          Descargar esta foto
+        </button>
+      </div>
+      
+      <!-- Comparison modal ad slot -->
+      <div id="ad-comparison-container" class="ad-box-comparison" style="min-height: 60px; min-width: 300px; max-width: 320px; background: rgba(255,255,255,0.01); display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: var(--radius-md); border: 1px dashed var(--border-color); font-size: 0.7rem; color: var(--text-muted); padding: 0.5rem; text-align: center; gap: 0.25rem; margin-left: auto;">
+        <span style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">Publicidad</span>
+        <span style="font-size: 0.75rem; color: var(--text-secondary);">Anuncio Patrocinado</span>
+      </div>
+    </div>
+  </div>
+</div>
